@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora Lulu</title>
+
+	<style type="text/css">
+		.botao {
+			width: 60px;
+			height: 60px;
+			background: #20b2aa;
+			float: left;
+			margin: 12px;
+			padding: 3px;
+			border-radius: 10px;
+		}
+
+		.botao:hover {
+  			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		.botaoduplo:hover {
+  			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		.botaotriplo:hover {
+  			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+
+		.botaoduplo {
+			width: 150px;
+			height: 60px;
+			background: #20b2aa;
+			float: left;
+			margin: 12px;
+			padding: 2px;
+			border-radius: 10px;
+		}
+
+		.botaotriplo {
+			width: 241px;
+			height: 60px;
+			background: #20b2aa;
+			float: left;
+			margin: 12px;
+			padding: 2px;
+			border-radius: 10px;
+		}
+
+		.botaovertical {
+			width: 60px;
+			height: 150px;
+			background: #20b2aa;
+			float: left;
+			margin: 12px;
+			padding: 2px;
+			border-radius: 10px;
+		}
+
+		.display {
+			width: 318px;
+			height: 80px;
+			border: 1px solid grey;
+			margin: 15px;
+			padding: 5px;
+			background: #F0FFF0;
+			border-radius: 3px;
+			font-size: 40px; 
+			text-align: right;
+		}
+		
+		.corpo {
+			width: 360px;
+			height: 570px;
+			border: 1px solid grey;
+			margin: auto;
+			padding: 15px;
+			border-radius: 20px;
+			background: #b0c4de;
+						
+		}
+
+		h3 {
+			text-align: center;
+			font-size: 1.4em;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+
+	<div class="corpo"> <!--inicio botões-->
+			
+		
+		<input id="resultado" class="display" type="text" placeholder="0" disabled="disabled">
+		
+
+		<div class="principal">
+				
+			<div onclick="calcular('acao', 'c')" class="botaotriplo">
+				<h3>C</h3>				
+			</div>
+			<div onclick="calcular('acao', '/')" class="botao">
+				<h3>/</h3>				
+			</div>
+
+				
+			<div onclick="calcular('valor', 7)" class="botao">
+				<h3>7</h3>				
+			</div>
+			<div onclick="calcular('valor', 8)" class="botao">
+				<h3>8</h3>				
+			</div>
+			<div onclick="calcular('valor', 9)" class="botao">
+				<h3>9</h3>				
+			</div>
+			<div onclick="calcular('acao', '*')" class="botao">
+				<h3>x</h3>				
+			</div>
+				
+				
+			<div onclick="calcular('valor', 4)" class="botao">
+				<h3>4</h3>				
+			</div>
+			<div onclick="calcular('valor', 5)" class="botao">
+				<h3>5</h3>				
+			</div>
+			<div onclick="calcular('valor', 6)" class="botao">
+				<h3>6</h3>				
+			</div>
+			<div onclick="calcular('acao', '-')" class="botao">
+				<h3>-</h3>				
+			</div>
+					
+
+			<div onclick="calcular('valor', 1)" class="botao">
+				<h3>1</h3>			
+			</div>
+			<div onclick="calcular('valor', 2)" class="botao">
+				<h3>2</h3>				
+			</div>
+			<div onclick="calcular('valor', 3)" class="botao">
+				<h3>3</h3>				
+			</div>
+			<div onclick="calcular('acao', '+')" class="botao">
+				<h3>+</h3>				
+			</div>
+							
+				
+			<div onclick="calcular('valor', 0)" class="botaoduplo">
+				<h3>0</h3>				
+			</div>
+			<div onclick="calcular('acao', '.')" class="botao">
+				<h3>.</h3>				
+			</div>
+			<div onclick="calcular('acao', '=')" class="botao">
+				<h3>=</h3>				
+			</div>
+		
+		</div>		
+							
+	</div><!--fim botões-->
+		
+
+	<script>
+		function calcular(tipo, valor) {
+
+			if(tipo === 'acao') {
+
+				if (valor === 'c') {
+					//limpar campo
+					document.getElementById('resultado').value = ''
+				}
+
+				if (valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor === '.') {
+					document.getElementById('resultado').value += valor
+				}
+
+				if (valor === '=') {
+					var valor_campo = eval(document.getElementById('resultado').value)
+
+					document.getElementById('resultado').value = valor_campo
+				}
+
+			} else if(tipo === 'valor') {
+				document.getElementById('resultado').value += valor
+			}
+
+		}
+		
+	</script>
+
+</body>
+</html>
